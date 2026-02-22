@@ -16,6 +16,8 @@ A reusable, parameterised Data Quality Measurement (DQM) framework designed to r
 
 ## Quick Start
 
+**In Databricks:** Add this repo in **Repos** (after pushing from here to GitHub). The framework runs in Databricks by cloning from GitHub; you develop and push from this environment.
+
 1. **Clone this repo** into your Databricks workspace (Repos) or locally.
 2. **Create the Results Catalog** in Databricks: run the SQL in `scripts/create_results_catalog.sql`.
 3. **Link repo in Databricks** (Repos → Add Repo) and set branch to `main`.
@@ -34,22 +36,25 @@ A reusable, parameterised Data Quality Measurement (DQM) framework designed to r
 - GitHub (this repo)
 - Python 3.x / PySpark (for running rules)
 
-## Push to your GitHub
+## Push to GitHub from this environment (secure)
 
-The repo is initialized with branch `main` and a first commit. To push to **your** GitHub:
+The repo is ready to push. To avoid credential prompts and push **securely from Cursor/this environment**:
 
-1. **Create a new repository** on GitHub (e.g. `dqm-framework`) — do not add a README or .gitignore so the repo is empty.
-2. **Set your remote** (replace `YOUR_USERNAME` and repo name if different):
+1. **One-time setup** — See **[docs/SETUP_GITHUB_PUSH.md](docs/SETUP_GITHUB_PUSH.md)**. You can use:
+   - **Git + macOS Keychain**: `git config --global credential.helper osxkeychain`, then one `git push` (enter PAT when prompted); after that, pushes work without prompts.
+   - **GitHub CLI**: `gh auth login`, then push.
+   - **SSH**: Add your SSH key to GitHub and set `origin` to `git@github.com:USER/repo.git`.
+2. **Set your remote** (if different from `simha/dqm-framework`):
    ```bash
-   cd /path/to/dqm-framework
    git remote set-url origin https://github.com/YOUR_USERNAME/dqm-framework.git
-   # Or use SSH: git remote set-url origin git@github.com:YOUR_USERNAME/dqm-framework.git
    ```
-3. **Push:**
+3. **Push** (after one-time credential setup, this works without typing credentials):
    ```bash
    git push -u origin main
    ```
-   Use a Personal Access Token (PAT) if prompted for password, or ensure SSH keys are set up for SSH URLs.
+   Or run: `./scripts/push_to_github.sh`
+
+Credentials are stored by the system (Keychain, `gh`, or SSH), not in the repo.
 
 ## Documentation
 
