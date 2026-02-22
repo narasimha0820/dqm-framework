@@ -34,6 +34,23 @@ A reusable, parameterised Data Quality Measurement (DQM) framework designed to r
 - GitHub (this repo)
 - Python 3.x / PySpark (for running rules)
 
+## Push to your GitHub
+
+The repo is initialized with branch `main` and a first commit. To push to **your** GitHub:
+
+1. **Create a new repository** on GitHub (e.g. `dqm-framework`) — do not add a README or .gitignore so the repo is empty.
+2. **Set your remote** (replace `YOUR_USERNAME` and repo name if different):
+   ```bash
+   cd /path/to/dqm-framework
+   git remote set-url origin https://github.com/YOUR_USERNAME/dqm-framework.git
+   # Or use SSH: git remote set-url origin git@github.com:YOUR_USERNAME/dqm-framework.git
+   ```
+3. **Push:**
+   ```bash
+   git push -u origin main
+   ```
+   Use a Personal Access Token (PAT) if prompted for password, or ensure SSH keys are set up for SSH URLs.
+
 ## Documentation
 
 - **DQM_FRAMEWORK_UNDERSTANDING.md** (in parent folder) — Full framework spec.
