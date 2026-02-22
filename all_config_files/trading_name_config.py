@@ -10,7 +10,7 @@ config_VECCPN_Completeness = {
         "rule_id": "VECCPN",
         "extract_date": "extract_date",
         "end_at": "end_at",
-        "table_name": "enterprise.my_schema.my_trading_table",  # Replace with your catalog.schema.table
+        "table_name": "main.dqm.trading_table",  # Replace with your catalog.schema.table
         "main_field": "trading_name",
         "filter_field": "customer_type",
         "filter_value": "'CORP','TRA'",
